@@ -49,7 +49,6 @@ class ServerConnector:
                     self.subscribers.append(session_id)
                 elif user_command == SUBSCRIBE:
                     topic_name = command[1]
-                    data.outb += recv_data
                     self.subscribe(session_id, topic_name)
 
     def subscribe(self, session_id, topic_name):
@@ -63,7 +62,7 @@ class ServerConnector:
             for id, message in messages.items():
                 if len(message) > 0:
                     if id == data.addr[1] and id in self.subscribers:
-                        m = message.pop()
+                        m = message.pop() + '\n'
                         data.outb += m.encode()
 
     def accept(self, sock):
