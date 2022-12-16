@@ -1,16 +1,10 @@
 # Simple python server
 
----
 
 #### The goal is to write a service to communicate between MQTT and telnet via text messages
 
----
-
-
 
 # How To Run and Test
-
----
 
 #### Start the server 
 > install requirements
